@@ -1,0 +1,46 @@
+
+                        Kobo Deluxe
+                        -----------
+                           v0.4
+
+              シューティングゲーム XKoboの強化版
+
+Kobo Deluxe は第三者視点のスクロールシューティングゲームで、
+単純ですが反応性のよい操作性を持っています。あなたはこの機体で、
+あなたを狙って撃ってきたり、追いかけてきたり、とりかこんで撃っ
+てきたり、あなたに向かって敵機を送り出す空母など、山ほどの敵機と、
+わたりあうことになります。このゲームには50の面があり、緩やかに
+難易度は上昇し、敵機の組み合わせが変化します。うまく切り抜ける
+ためにはその都度的確な戦略を必要とします。
+
+Kobo Deluxeはグラフィックエンジンを進化させ、ゲームの進行やタイ
+ミングに依存しない柔軟なフレームレート設定を可能としています。また、
+効果音、派手な「計器類」のグラフィック、フルスクリーンモードや、
+今時のゲームに求められているさまざまな機能を実現しています。
+Kobo Deluxe はSDLをベースにしており、多くのオペレーティングシス
+テム上で動作します。あまり一般的ではなプラットホームでも動作する
+かもしれません。
+
+ひとことで言うなら、Kobo Deluxeはクラシックなアーケードスタイルの
+ゲームを、様々な環境のマシンで遊べるようにしたということです。
+
+  Enjoy...!
+
+                        David Olofson <david@olofson.net>
+			http://olofson.net
+
+
+Thanks to:
+	Akira Higuchi (オリジナル版XKoboの作者)
+
+	Masanao Izumo (サウンドエフェクトとオリジナル版サウンドエンジンの作者)
+	Max Horn (Mac OS X)
+	Tsuyoshi Iguchi (FreeBSD)
+	G. Low (Solaris)
+	Gerry Jo "Trick" Jellestad (テストとアイディア提供)
+	SDLメーリングリストのメンバー
+
+
+(jp) 註: 日本語訳の責任はTsuyoshi Iguchiにあります。
+(en) Notice: Resopnsibility for Japanese translation 
+             is belong to Tsuyoshi Iguchi.

@@ -1,0 +1,2 @@
+#!/bin/sh
+CFLAGS="-O0" CXXFLAGS="-O0" ./configure --prefix=/usr --enable-epm --enable-debug --disable-alsa --enable-opengl --enable-oss

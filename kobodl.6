@@ -1,0 +1,378 @@
+.TH KOBODL 6 "26 December 2007"
+.SH NAME
+kobodl - Kobo Deluxe, an enhanced version of the scrolling game XKobo
+.SH SYNOPSIS
+.B kobodl
+[
+.I options
+]
+.SH DESCRIPTION
+Kobo Deluxe is a 3'rd person scrolling 2D shooter with a simple and responsive
+control system - which you'll need to tackle the tons of enemy ships that shoot
+at you, chase you, circle around you shooting, or even launch other ships at
+you, while you're trying to destroy the labyrinth shaped bases. There are 50
+action packed levels with smoothly increasing difficulty, and different
+combinations of enemies that require different tactics to be dealt with
+successfully.
+.P
+Kobo Deluxe has an improved graphics engine that delivers smoother animation,
+while keeping the game logic totally accurate and predictable regardless of
+frame rate. It also adds sound effects, new graphics, fullscreen mode, four
+extra skill levels with smoother gameplay and various other features expected
+from a modern game. (There is still a "Clasic" mode that plays exactly like the
+original XKobo.)
+.P
+Kobo Deluxe uses SDL for sound, graphics and input, and builds and runs on all
+major operating systems, as well as some more unusual platforms. It can also
+use OpenGL for accelerated rendering, through glSDL.
+.P
+In short, Kobo Deluxe is loads of classical arcade style fun for just about any
+machine with graphics and sound!
+.SH CONTROLS
+The ship can be controlled with the keyboard, or optionally a mouse or
+joystick. With the keyboard, the arrow keys move the ship (two keys for
+diagonals), and the shift and ctrl keys shoots. The numeric key pad can also be
+used; the usual 2/4/6/8 (arrows), and also 1/3/7/9 for single key diagonals.
+Escape enters the meny system, from where it is possible to change settings,
+start a new game or exit the game.
+.SH OPTIONS
+Note that all relevant options can be also configured in the config file,
+which can be edited directly, or using the options menus in the game.
+.TP
+.B \-[no]logfile
+Log To File. Default: Off.
+.TP
+.B \-logformat
+Log File Format. Default: 0.
+.TP
+.B \-logverbosity
+Log Verbosity Level. Default: 2.
+.TP
+.B \-[no]joystick
+Use Joystick. Default: Off.
+.TP
+.B \-joystick_no
+Joystick Number. Default: 0.
+.TP
+.B \-[no]mouse
+Use Mouse. Default: Off.
+.TP
+.B \-mousemode
+Mouse Control Mode. Default: 1.
+.TP
+.B \-[no]broken_numdia
+Broken NumPad Diagonals. Default: Off.
+.TP
+.B \-dia_emphasis
+Diagonals Emphasis Filter. Default: 0.
+.TP
+.B \-[no]always_fire
+Always Fire. Default: Off.
+.TP
+.B \-[no]mousecapture
+In-game Mouse Capture. Default: On.
+.TP
+.B \-scrollradar
+Radar Scroll Mode. Default: 2.
+.TP
+.B \-[no]filter
+Enable/disable motion interpolation. Interpolation is what makes animation
+smooth at high frame rates despite the game logic running at 33.33 fps.
+However, it also adds some input latency! Default: On.
+.TP
+.B \-timefilter
+Time filter, for smoothing out timing jitter induced by the operating system.
+Default: 50.
+.TP
+.B \-countdown
+Get Ready Countdown. Default: 5.
+.TP
+.B \-starfield
+Starfield Style. Default: 2.
+.TP
+.B \-stars
+Number of Parallax Stars. Default: 500.
+.TP
+.B \-overheatloud
+Overheat Warning Loudness. Default: 100.
+.TP
+.B \-cannonloud
+Player Cannons Loudness. Default: 100.
+.TP
+.B \-[no]sound
+Enable Sound. Default: On.
+.TP
+.B \-[no]music
+Enable Music. Default: On.
+.TP
+.B \-[no]cached_sounds
+Use Cached Sounds. Default: Off.
+.TP
+.B \-[no]oss
+Use OSS Sound Driver. Default: Off.
+.TP
+.B \-samplerate
+Sample Rate. Default: 44100.
+.TP
+.B \-latency
+Sound Latency. Default: 50.
+.TP
+.B \-mixquality
+Mixing Quality. Default: 3.
+.TP
+.B \-vol
+Master Volume. Default: 100.
+.TP
+.B \-intro_vol
+Intro Music Volume. Default: 100.
+.TP
+.B \-sfx_vol
+Sound Effects Volume. Default: 100.
+.TP
+.B \-music_vol
+In-Game Music Volume. Default: 30.
+.TP
+.B \-reverb
+Reverb Level. Default: 100.
+.TP
+.B \-vol_boost
+Volume Boost. Default: 0.
+.TP
+.B \-[no]fullscreen
+Fullscreen Display. Default: Off.
+.TP
+.B \-videodriver
+Display Driver. Default: 0.
+.TP
+.B \-width
+Horizontal Resolution. Default: 640.
+.TP
+.B \-height
+Vertical Resolution. Default: 480.
+.TP
+.B \-aspect
+Pixel Aspect Ratio. Default: 1000.
+.TP
+.B \-depth
+Display Depth. Default: 0.
+.TP
+.B \-maxfps
+Limit the framerate (fps). Saves power on laptops (75 works well), and can also
+avoid long stalls due to timesharing and background processes. Default: 100.
+.TP
+.B \-maxfpsstrict
+Strictly Regulated fps. Default: 0.
+.TP
+.B \-buffer
+Display Buffer Mode. Default: 1.
+.TP
+.B \-[no]shadow
+Use Software Shadow Buffer. Default: On.
+.TP
+.B \-videomode
+Video Mode. Default: 17200.
+.TP
+.B \-[no]vsync
+Enable Vertical Sync. Default: On.
+.TP
+.B \-videopages
+Number of Video Pages. Default: -1.
+.TP
+.B \-scalemode
+Scaling Filter Mode. Default: 1.
+.TP
+.B \-[no]dither
+Use Dithering. Default: On.
+.TP
+.B \-dither_type
+Dither Type. Default: 0.
+.TP
+.B \-[no]broken_rgba8
+Broken RGBA (OpenGL). Default: Off.
+.TP
+.B \-[no]alpha
+Use Alpha Blending. Default: On.
+.TP
+.B \-brightness
+Brightness. Default: 100.
+.TP
+.B \-contrast
+Contrast. Default: 100.
+.TP
+.B \-files
+Specify the root path of the game. Default: ""
+.TP
+.B \-gfx
+Specify the path to the game's graphics data. Default: ""
+.TP
+.B \-sfx
+Specify the path to the game's sound data. Default: ""
+.TP
+.B \-scores
+Specify the path to the game's score files. Default: ""
+.TP
+.B \-size
+(Not saved!) Screen Size (Obsolete). Default: 0.
+.TP
+.B \-wait
+Game Speed (Obsolete). Default: 30.
+.TP
+.B \-bgm
+(Not saved!) Background Music File (Obsolete). Default: ""
+.TP
+.B \-threshold
+(Not saved!) Limiter Gain. Default: 200.
+.TP
+.B \-release
+(Not saved!) Limiter Speed. Default: 50.
+.TP
+.B \-internalres
+(Not saved!) Texture Resolution. Default: 1.
+.TP
+.B \-last_profile
+Last used player profile. Default: 0.
+.TP
+.B \-number_of_joysticks
+Number of Connected Joysticks. Default: 0.
+.TP
+.B \-[no]showcfg
+(Not saved!) Show Configuration. Default: Off.
+.TP
+.B \-[no]hiscores
+(Not saved!) List High Scores. Default: Off.
+.TP
+.B \-[no]highscores
+(Not saved!) List High Scores. Default: Off.
+.TP
+.B \-[no]override
+(Not saved!) Ignore Configuration File. Default: Off.
+.TP
+.B \-[no]debug
+(Not saved!) Enable Debug Features. Default: Off.
+.TP
+.B \-[no]fps
+(Not saved!) Display frames per second in game screen. Default: Off.
+.TP
+.B \-[no]noframe
+(Not saved!) Do not render rounded corners on the playfield. Default: Off.
+.TP
+.B \-[no]midi
+(Not saved!) Enable MIDI Input. Default: Off.
+.TP
+.B \-[no]cheat
+(Not saved!) Enable/disable cheat mode. Cheat mode allows any level to be
+played, but highscores are not saved! Default: Off.
+.TP
+.B \-[no]indicator
+(Not saved!) Enable Collision Indicator Mode. Default: Off.
+.TP
+.B \-[no]pushmove
+(Not saved!) Enable Push Move Mode. Default: Off.
+.TP
+.B \-[no]noparachute
+(Not saved!) Disable SDL Parachute. Default: Off.
+.TP
+.B \-[no]pollaudio
+(Not saved!) Use Polling Audio Output. Default: Off.
+.TP
+.B \-[no]autoshot
+(Not saved!) Ingame screenshots/movie. Default: Off.
+.TP
+.B \-[no]help
+(Not saved!) Print usage info and exit. Default: Off.
+.TP
+.B \-[no]options_man
+(Not saved!) Print options for 'man'. Default: Off.
+.SH FILES
+.TP
+.B ~/.kobodlrc
+The per-user configuration file for Kobo Deluxe.
+.SH AUTHORS
+Originally written by
+Akira Higuchi (a-higuti@math.hokudai.ac.jp), XKobo was turned into Kobo
+Deluxe by David Olofson <david@olofson.net>
+.SH THANKS
+Thanks, in no particular order, to...
+.TP
+.B Akira Higuchi
+Author of the Original XKobo.
+.TP
+.B Masanao Izumo
+Sound effects and original sound engine.
+.TP
+.B Torsten Giebl
+Slackware.
+.TP
+.B David Andersson
+Various Good Ideas.
+.TP
+.B Max Horn
+Mac OS X & Build Script Patches.
+.TP
+.B Jeremy Sheeley
+Player Profiles.
+.TP
+.B Tsuyoshi Iguchi
+FreeBSD, NetBSD.
+.TP
+.B Samuel Hart
+Joystick Support.
+.TP
+.B G. Low
+Solaris.
+.TP
+.B Gerry Jo "Trick" Jellestad
+Testing and ideas.
+.TP
+.B "Riki"
+Intel Compiler.
+.TP
+.B Andreas Spaangberg
+Sun Compiler & Bug Spotting.
+.TP
+.B "SixK"
+Amiga Port.
+.TP
+.B Joey Hess
+Debian.
+.TP
+.B Martijn van Oosterhout
+FPS limiter.
+.TP
+.B Antonio Messina
+Stage 1601+ difficulty wrap, Always Fire option.
+.TP
+.B Hans de Goede
+Audio buffer handling bug.
+.TP
+.B Marianne Ibbotson
+"Autopause" idea.
+.TP
+.B Sam Palmer
+MS Windows testing.
+.TP
+.B Michael Sterrett
+glSDL issues.
+.TP
+.B Sam Lantinga & Others
+SDL, the Simple DirectMedia library.
+.TP
+.B Members of the SDL mailing list
+Testing and ideas.
+.SH COPYRIGHT
+Copyright (c) 1995, 1996 Akira Higuchi
+.P
+Copyright (C) 1997 Masanao Izumo
+.P
+Copyright (C) 1999-2001 Simon Peter
+.P
+Copyright (C) 2002 Florian Schulze
+.P
+Copyright (C) 2002 Jeremy Sheeley
+.P
+Copyright (C) 2005 Erik Auerswald
+.P
+Copyright (c) 1999-2007 David Olofson
+.P
+\fBKobo Deluxe\fP is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License.

@@ -1,0 +1,89 @@
+
+	The "EEL Compressed Source" file format
+	---------------------------------------
+
+EEL Compressed Source files are EEL source files stripped of
+all comments and formatting information. They are tokenized
+using an external dictionary, which contains all keywords of
+EEL and extensions, and any project names. Immediate values
+are encoded using an extended "variable length number" BCD
+format.
+
+* EEL Compressed Source files should have the extension
+  ".eec" instead of the normal ".eel", for reliable
+  identification, and to avoid accidentally overwriting
+  source files with compressed source files. (That would
+  be nasty, as the compression is destructive WRT comments,
+  symbol names and code formatting...)
+
+* The files are based on 4 bit words. Wider words (8 or 16
+  bits) are *not* aligned to 8 or 16 bits, but start
+  directly at the current 4 bit word position.
+
+* There are two modes: XASCII and XBCD. Decoding of a file
+  starts in the XASCII mode. XASCII codes are 8 bits, and
+  XBCD codes are 4 bits.
+
+* The file starts with an 8 bit version code for the EEL
+  dictionary to use. Then follows a list of 4 byte EEL
+  extension IDs, terminated by a 0 byte. The EEL extension
+  IDs are of the form "XXXv", where "XXX" is an acronym
+  identifying the extension, and "v" is the version of the
+  extension dictionary to use.
+  
+  Any extension ID that doesn't math any known EEL
+  extension is assumed to be a Local Dictionary name.
+  ".eed" will be appended to the full 4 byte string (no
+  version code), and then EEL will try to find a file by
+  that name and load it as a Local Dictionary.
+
+* A Local Dictionary file consists of a 32 bit little
+  endian integer that holds the number of tokens needed
+  by the dictionary, *optionally* followed by a list of
+  null terminated ASCII strings, holding the human
+  readable names of all tokens. (The token name list is
+  useful when mixing compressed source with ASCII source
+  during development.)
+
+* Token values are allocated from 0 and up as
+  dictionaries are loaded. This is why there are
+  extension version numbers in the dictionary lists -
+  and it should also make it obvious that EEL extensions
+  must only *add* to their dictionaries if compatibility
+  with old compressed sources is to be maintained.
+
+* XASCII code:
+	0-14	XBCD code + enter XBCD mode
+
+	15	Local token dictionary follows
+	16	8 bit character follows
+	17	Null terminated 8 bit quoted string
+	18	Quoted 8 bit Pascal string follows
+	19	Quoted 8 bit Pascal string continued
+	20	<unused>
+	21	<unused>
+	22	<unused>
+	23	<unused>
+	24	<unused>
+	25	<unused>
+	26	<unused>
+	27	<unused>
+	28	<unused>
+	29	<unused>
+	30	<unused>
+	31	<unused>
+
+	32-127	Standard 7 bit ASCII (copied as is)
+
+	128-191	Short Tokens
+	192-254	Extended Tokens (8 extra bits follow)
+	255	Wide Tokens (16 extra bits follow)
+
+* XBCD code:
+	0-9	Decimal numbers 0-9
+	10	Decimal point (.)
+	11	Unary minus (-)
+	12	Argument separator/white space
+	13	Statement terminator (;)
+	14	Single XASCII character follows
+	15	Switch to XASCII mode

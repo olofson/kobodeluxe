@@ -1,0 +1,349 @@
+
+  Priority:
+
+	* More advanced GUI, with windows and proper widgets.
+	  Appears sensible to build it in EEL, but OTOH, it might
+	  be more useful if it's pure lightweight C and designed
+	  to fit nicely into/over anything. One does not rule out
+	  the other, but EEL is not infinitely small...
+
+	* "Pre-blit" all graphics, to avoid in-game conversion and
+	  uploading delays in high resolutions!
+
+	* Some "regenerate map" shortcut, at least until we've
+	  permanently eliminated all impossible and unreasonably
+	  hard bases.
+
+	* Sort the video modes!
+
+	* Nodes and cores should have some sort of "spawn"
+	  effect when firing.
+
+	* Logic object pool optimization: Use LIFO pool + lists!
+
+	* Graphics:
+		* Cleaner gold fonts! (Poor AA in bigfont3, and
+		  goldfont is just a scaled and colorized version
+		  of icefont2.)
+		* Enemy shots look too much like hard objects!
+		* Rockets are too shiny, hiding their colors!
+		* The round rock is too... well, round!
+		* 
+
+	* Graphics scaling:
+		* Remove or hide the advanced graphics options!
+		* Graphics quality:
+			* Fastest
+			* Medium
+			* Best (Default)
+			* Custom (show old detailed settings)
+			* At first startup, quality would be
+			  "Unknown". The game will start by
+			  testing the intro with no logo. The game
+			  picks a quality setting based on frame
+			  rate. If "Medium" or "Fastest" is picked,
+			  the game should warn and ask the user.
+		* Specify in the loader what scaling methods should
+		  be used for each quality setting. (What about
+		  Custom?)
+		* Disable alpha in Fastest quality. Medium...?
+
+	* Better scaling!
+		* Try SDL_resize!!!
+		* Combine Scale2x and Diamond2x?
+		* S-spline style enhancement filters?
+		* Detail textures?
+
+	* Indirectly changing the video mode (by changing one
+	  of the "Show" options) will not trigger a video
+	  restart.
+
+	* Death sequence UI timing should not be governed by
+	  game logic time! Throw in a "state time" feature in
+	  the gamestate manager or something. Or perhaps just
+	  switch to a fixed logic frame rate when not
+	  actually in-game? (It does actually make sense to
+	  scale in-game effects with game speed!)
+
+	* Quicker menu navigation with PgUp/Dn, Home, End etc.
+
+	* 3D "rockfield" for highscore and/or credits? (2D
+	  parallax rocks + stars without glSDL.) glSDL should
+	  support texture filtering for nice scaling.
+
+	* There should be some feedback from the sound engine,
+	  perhaps... As it is, you can't even see what sample
+	  rate it's actually using.
+
+  Bugs:
+
+	* Y scale factor f*cked up when switching to 2560x1600!
+	  Apparently happens only after "escape hammering"...
+
+	* In-game music volume affects intro music!
+
+	* Mouse crosshair can stick around after disabling mouse
+	  control!
+
+	* Multiple keys and buttons bound to the same
+	  function results in up/down state confusion; if
+	  you release one of the keys, the "target" gets a
+	  release event, despite other keys with the same
+	  target being held down.
+
+	* Nibble effect still doesn't like double buffering.
+
+	* The sound engine is mixing up PAN events!!!
+
+	* glSDL surface leak when taking screenshots!
+
+	* Do we *really* wait for all bases to stop exploding
+	  after the player lost a ship...?
+
+	* Noise fx glitches in some resolutions.
+
+	* If a ctrl+enter fullscreen/windowed switch is made
+	  while the menu is shown, the text goes away!
+
+	* Any playing game aborts after toggling windowed/
+	  fullscreen!
+
+	* VSync settings doesn't change as it should! Doesn't seem
+	  to be much I can do about this...
+
+	* Leaving the game running for a few hours results in
+	  "hickups" at around 2 Hz, until the graphics is reloaded
+	  or similar. (Logic re-init?)
+
+	* Downscaling (sub 320x240) breaks the radar and
+	  causes various other issues. (Pretty much expected...)
+
+	* SIGSTOP kills the main thread... SDL/AMD64 bug...?
+
+	* SIGSTOP/SIGCONT seems to confuse the game logic.
+	  (Already fixed...?)
+
+	* SDL_GetAppState()! (Fixed...?)
+
+
+  Internals:
+
+	* Try to create a scoredir if missing!
+
+	* Add doc() method to the config manager, for longer
+	  explanations of the options.
+		* Structured documentation for values...?
+
+	* Try reading back from the display buffer to autodetect
+	  how page flipping is handled! Mark pages with a few
+	  pixels in the corner (binary page numbers), and see
+	  if/when they come back.
+
+	* Pause mode should not consume CPU or GPU power,
+	  at least not if the window is passive.
+
+	* Multiple priority groups for sound effects!
+
+	* glSDL and EEL should output errors to the logger.
+
+	* Switch to PhysicsFS!?
+
+	* WAV writer? (Just for "cache sounds on disk.")
+
+	* Don't overwrite other windows when refreshing the
+	  in-game framework.
+
+	* Convert text files to Win32 format in the Win32
+	  install target!
+
+	* Add source info to "key" codes, to tell joystick
+	  input from keyboard and the like, when desired.
+
+	* Use custom keyboard repeat code. Should be used
+	  for joystick events as well.
+
+	* Show a system dialog of some sort, instead of
+	  printing to stderr. (Critical errors only.)
+
+	* Range checking on command line args and config.
+
+	* Remove either gamecontrol or gsm event pushing
+	  calls from skobo_gfxengine_t::frame(). Don't know
+	  which one, but it can't be right the way it is
+	  now...
+
+	* Rearrange the source tree so that all source is
+	  in an src subdir.
+
+	* Put README, COPYING etc in binary distros. (Done
+	  for Win32 "simple bundles".)
+
+	* Add CRC or simple "checksum" to score files, to
+	  prevent too easy modification. You must at least
+	  download the game source and hack it if you
+	  *really* want to cheat! ;-)
+
+
+  Features:
+
+	* Proper start-of-map savegames!
+
+	* Instructions! (In the radar window...?)
+
+	* Input configurator!!!
+
+	* Game statistics!
+		* Shots fired
+		* Hits
+		* Accuracy
+		* Kills
+		* Deaths
+		* Damage
+
+	* Adrenaline Mode:
+		* Health/damage accounting
+		* Powerups
+		* Indestructible labyrinths
+		* N bases or objects to destroy
+		* Loads of aggressive enemies
+		* "Forced speedrun" style gameplay
+
+	* Throw in some *real* music. (The demo songs don't
+	  really have anything to do with Kobo Deluxe. I
+	  was basically just testing things when developing
+	  the audio engine.)
+
+	* Implement "world snapshot" feature, to use for
+	  save game option, as well as internal temporary
+	  save game for changing video options in the
+	  middle of the game and the like. Needs to save
+	  score, lives etc, the current map, all objects,
+	  random number seed etc.
+
+	* Implement multiplayer modes. (Deathmatch and
+	  Cooperative, for starters.)
+
+	* Separate personal and global highscores. Where
+	  applicable, one could keep score for player/user,
+	  system local, local network and the internet,
+	  and/or maybe some kind user defined groups.
+
+	* New "Instructions" solution. (New state...?)
+
+	* "Sloppy Refresh" hack to improve frame rate for
+	  sprites and base tiles, while reducing it for
+	  the starry background tiles.
+
+	* On targets with sync'ed flips, accept "close
+	  enough" refresh rates as time base, so that the
+	  video frame rate becomes an integer multiple of
+	  the engine frame rate. (Smoother scrolling.)
+
+  Gameplay:
+
+	* Elite and God modes should make enemies smarter
+	  (aim-ahead, at least). We want "tough" - not
+	  "stupid fast"!
+
+	Radar:
+		* Radar markings for death + respawn points when
+		  getting killed?
+
+		* Show map borders in radar, for orientation?
+
+	Base layout:
+		* Prevent the map generator from building
+		  impossible bases! Possibly build a list of
+		  tested and approved random seeds for each
+		  level...
+		* Don't make bases where you have to navigate
+		  into the base on the first few levels.
+		* Simulation based base verification method:
+			1. Destroy all destructible nodes.
+			2. Figure out how many turns one would
+			   have to navigate into the base in
+			   order to get a shot at the core.
+		* Provide a fixed set of maps for fair highscore,
+		  speedruns and the like! As it is, every game
+		  is truly unique, so scores cannot really be
+		  compared. (Well, that *could* be considered
+		  part of the game, of course...)
+
+	* Import some extra maps from xkobo-1.11+w01?
+
+	* Bonus levels...?
+
+	* "Smooth chase" scroll in non Classic modes? Maybe
+	  even filtered player movement?
+
+	* Fire to push rocks around?
+
+	* "Milking" cores that fire enemies is a potential
+	  way of cheating for a higher score. Throw in an
+	  enemy_m* after some time as assassin to prevent
+	  this? (How to detect whether the player is doing
+	  something "sensible" or not...?)
+
+	  Trick suggested a nice and simple solution: Just
+	  lower the "price tag" on enemies spawned from
+	  nodes over time. No effect on gameplay, but if
+	  you fly around shooting defenseless enemies for
+	  too long, they'll eventually stop counting
+	  towards your score. The only remaining problem
+	  is figuring out when to start decreasing enemy
+	  scores, and how fast.
+
+
+  Features:
+
+	* Instant restart button? (Shouldn't really be needed
+	  if the "impossible base" bugs are fixed...)
+
+	* Should be able to skip the death explosion sequence,
+	  if there are more ships! Maybe an option to remove
+	  it (and other effects) altogether?
+
+	* Separate highscores for different skills.
+
+	* Help texts (in the radar window?) for config options!
+
+	* Add native OpenGL support with sub-pixel accurate
+	  rendering for ultra smooth animation.
+
+	* Nice health bar flash effects.
+
+	* Fine rotation adjustment when using OpenGL. (Needs
+	  a generic high resolution rotation field.)
+
+	* Screen pixel accurate map scrolling.
+
+	* "Stage cleared" screens with stats and stuff!
+
+	* Demo recording and playback! (Nice feature and
+	  debugging tool.)
+
+	* Implement waveshaper AGW command!
+
+	* New master output processor:
+		* Three bands with separate "boost" controls.
+
+		* Non-linear audio output for high boost!
+
+		* New limiter that programs a waveshaper based
+		  on input level?
+
+	* Interesting soundscape while loading?
+
+	* "Center Playfield" (as opposed to "center framework")
+	  video option
+
+	* Default/Changed status indicators in the options.
+
+
+  Web site and other stuff:
+
+	* Find binary packages and maintainers!
+
+	* Links to unrelated games sites.
+
+	* Write a design paper!

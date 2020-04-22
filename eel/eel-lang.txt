@@ -1,0 +1,161 @@
+
+	The Extensible Embeddable Language
+	----------------------------------
+
+	Well, here's a simple extensible scripting language
+	for ya' - all in a few thousand lines of (hopefully)
+	portable C code! No external tools needed to build
+	this version, although future versions might have the
+	parsing functions replaced with a Bison parser. (You
+	still won't really need Bison, unless you want to
+	change the language syntax.)
+
+	Extending the language is done by adding commands,
+	directives, operators, enums and "specials". It's pretty
+	much as simple as it gets, without using a custom source
+	preprocessor. A single scanf() style function call does
+	argument checking and casting for commands, so you
+	usually get away with a single call to get all your
+	arguments.
+
+   The Language:
+	EEL is CaSe SEnSitIve!
+
+	An EEL file consists of zero or more statements.
+
+	There are (so far) two kinds of statements: Command
+	Statements and Assignments.
+
+	A Command Statement starts with a command name,
+	followed by zero or more coma (,) separated arguments,
+	and is terminated with a semicolon (;). Some commands
+	accept variable numbers of arguments.
+
+	A command argument may be of any type, which means
+	that symbol references, command references and other
+	weird stuff can be passed.
+
+	"Functions" can be implemented as commands that
+	require one or more arguments to be passed by
+	reference. (See "set" / '=' command, which is an
+	example of this.)
+
+	Assignments can be written in two forms; either using
+	the 'set' command, which takes two arguments; the
+	target and the source - or the more compact '='
+	operator method, is which the target is on the left
+	side of the '=' operator, and the source is on the
+	right.
+TODO:
+	"Function commands" can alternatively be called using
+	the traditional "a = function ...;" style. The
+	command's first argument should be an output argument,
+	and preferably the only output argument. (Note that
+	the *real* set command/'=' operator is not involved!)
+/TODO
+
+	Variables are created implicitly as a result of the
+	first Assignment. (This will probably change...)
+
+	Variables are dynamically typed. Both value and type
+	may be changed after a variable has been declared.
+
+	EEL strives to use "late casting", which means that
+	in the normal case, assignments change type as well
+	as value.
+TODO:
+	The above is somewhat confusing, and will most probably
+	change. We need a clear distinction between "passing
+	by value" and "passing by reference", as this becomes
+	very important in algorithmic code.)
+/TODO
+
+	Data types that can be stored in a variable:
+	    Real		(64 bit float)
+	    Integer		(32 bit signed)
+	    String		(Null terminated)
+	    Code Address	(Source or bytecode position)
+	    Symbol Reference	(Can refer to any symbol)
+
+	Symbol reference variables are quite interesting, as
+	they can theoretically reference *anything*, including
+	commands - and all type info is available as an extra
+	bonus. (Note that most of this is rather useless right
+	now, as the language doesn't have constructs that can
+	make use of it!)
+
+   Built-in EEL commands, functions and directives:
+	end;
+		End of script. (Same effect as EOF.)
+
+	set <name>, <value>;
+	<name> = <value>;
+		Set variable <name> to <value>. If <name>
+		is not yet defined, it will be created
+		automatically. (This is likely to change.)
+
+	print arg[, arg[,...]];
+		Print the arguments in the "standard console".
+
+	procedure <procname>([arg[, arg[,...]]]) { <body> }
+	function <funcname>([arg[, arg[,...]]]) { <body> }
+		Define procedure 'procname' or function
+		'funcname', respectively. The function will
+		take (as in "require") the specified
+		(dynamically typed) arguments, and when it's
+		invoked, the code in between the curly
+		brackets ('{' and '}') will be executed.
+		The function *must* return a value, while
+		the procedure must *not* - that's the only
+		difference between them.
+
+		When a function or procedure is running, a
+		local "partition" of the symbol table is used.
+		Initially, this table contains only the
+		arguments, but any new variables declared as
+		the body code executes are added to *this*
+		table, instead of the global table, as in the
+		normal case. The "partition" (actually just a
+		local namespace) is removed as the function
+		or procedure returns, which obviously means
+		that the argument variables, as well as any
+		local variables, are deleted.
+
+	<funcname> [arg[, arg[,...]]];
+		Function invocation. Works just like a
+		command invocation, although EEL will just
+		add the arguments to the Local Symbol Table -
+		it will not perform any type checking, as
+		argument types aren't supported as of now.
+
+	#include <filename>
+		Run the file 'filename' in the current scope,
+		and then continue executing the current
+		script.
+
+		Note that as of now, this is not 100%
+		compatible with the way a C/C++ preprocessor
+		works! It's more like loading and executing
+		a "subroutine script".
+
+	#define <identifier> <value>
+		C header compatibility hack for defining
+		constants. It's mostly there to allow EEL
+		scripts to share headers with other languages
+		using C preprocessors, like C or C++. We want
+		to do that *without* actually using cpp, as
+		EEL scripts are supposed to load and run from
+		source without "special tools".
+
+TODO:
+	<name>:
+		Label declaration. Creates a symbol <name>
+		that contains the Code Address of the
+		statement following the colon.
+
+TODO:
+	i = 0;
+	for i < 10
+	{
+		...
+	} i = i + 1;

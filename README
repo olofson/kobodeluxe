@@ -1,0 +1,370 @@
+(This document was generated from the kobodl.6 'man' file.)
+
+                                    Kobo Deluxe
+                                    -----------
+                                      v0.5.1
+
+                                  An enhanced port
+                             of the scrolling video game
+                                       XKobo
+
+DESCRIPTION
+       Kobo  Deluxe  is  a  3'rd person scrolling 2D shooter with a simple and
+       responsive control system - which you'll need to  tackle  the  tons  of
+       enemy  ships  that shoot at you, chase you, circle around you shooting,
+       or even launch other ships at you, while you're trying to  destroy  the
+       labyrinth shaped bases. There are 50 action packed levels with smoothly
+       increasing difficulty,  and  different  combinations  of  enemies  that
+       require different tactics to be dealt with successfully.
+
+       Kobo Deluxe has an improved graphics engine that delivers smoother ani-
+       mation, while keeping the game logic totally accurate  and  predictable
+       regardless  of  frame  rate.  It also adds sound effects, new graphics,
+       fullscreen mode, four extra skill levels  with  smoother  gameplay  and
+       various  other  features expected from a modern game. (There is still a
+       "Clasic" mode that plays exactly like the original XKobo.)
+
+       Kobo Deluxe uses SDL for sound, graphics and input, and builds and runs
+       on all major operating systems, as well as some more unusual platforms.
+       It can also use OpenGL for accelerated rendering, through glSDL.
+
+       In short, Kobo Deluxe is loads of classical arcade style fun  for  just
+       about any machine with graphics and sound!
+
+CONTROLS
+       The  ship can be controlled with the keyboard, or optionally a mouse or
+       joystick. With the keyboard, the arrow keys move the ship (two keys for
+       diagonals), and the shift and ctrl keys shoots. The numeric key pad can
+       also be used; the usual 2/4/6/8 (arrows), and also 1/3/7/9  for  single
+       key  diagonals.  Escape enters the meny system, from where it is possi-
+       ble to change settings, start a new game or exit the game.
+
+OPTIONS
+       Note that all relevant options can be also  configured  in  the  config
+       file,  which  can be edited directly, or using the options menus in the
+       game.
+
+       -[no]logfile
+              Log To File. Default: Off.
+
+       -logformat
+              Log File Format. Default: 0.
+
+       -logverbosity
+              Log Verbosity Level. Default: 2.
+
+       -[no]joystick
+              Use Joystick. Default: Off.
+
+       -joystick_no
+              Joystick Number. Default: 0.
+
+       -[no]mouse
+              Use Mouse. Default: Off.
+
+       -mousemode
+              Mouse Control Mode. Default: 1.
+
+       -[no]broken_numdia
+              Broken NumPad Diagonals. Default: Off.
+
+       -dia_emphasis
+              Diagonals Emphasis Filter. Default: 0.
+
+       -[no]always_fire
+              Always Fire. Default: Off.
+
+       -[no]mousecapture
+              In-game Mouse Capture. Default: On.
+
+       -scrollradar
+              Radar Scroll Mode. Default: 2.
+
+       -[no]filter
+              Enable/disable motion interpolation. Interpolation is what makes
+              animation smooth at high frame rates despite the game logic run-
+              ning at 33.33 fps.  However, it also adds  some  input  latency!
+              Default: On.
+
+       -timefilter
+              Time  filter,  for  smoothing  out  timing jitter induced by the
+              operating system.  Default: 50.
+
+       -countdown
+              Get Ready Countdown. Default: 5.
+
+       -starfield
+              Starfield Style. Default: 2.
+
+       -stars Number of Parallax Stars. Default: 500.
+
+       -overheatloud
+              Overheat Warning Loudness. Default: 100.
+
+       -cannonloud
+              Player Cannons Loudness. Default: 100.
+
+       -[no]sound
+              Enable Sound. Default: On.
+
+       -[no]music
+              Enable Music. Default: On.
+
+       -[no]cached_sounds
+              Use Cached Sounds. Default: Off.
+
+       -[no]oss
+              Use OSS Sound Driver. Default: Off.
+
+       -samplerate
+              Sample Rate. Default: 44100.
+
+       -latency
+              Sound Latency. Default: 50.
+
+       -mixquality
+              Mixing Quality. Default: 3.
+
+       -vol   Master Volume. Default: 100.
+
+       -intro_vol
+              Intro Music Volume. Default: 100.
+
+       -sfx_vol
+              Sound Effects Volume. Default: 100.
+
+       -music_vol
+              In-Game Music Volume. Default: 50.
+
+       -reverb
+              Reverb Level. Default: 100.
+
+       -vol_boost
+              Volume Boost. Default: 0.
+
+       -[no]fullscreen
+              Fullscreen Display. Default: Off.
+
+       -videodriver
+              Display Driver. Default: 0.
+
+       -width Horizontal Resolution. Default: 640.
+
+       -height
+              Vertical Resolution. Default: 480.
+
+       -aspect
+              Pixel Aspect Ratio. Default: 1000.
+
+       -depth Display Depth. Default: 0.
+
+       -maxfps
+              Limit the framerate (fps). Saves  power  on  laptops  (75  works
+              well),  and  can  also  avoid long stalls due to timesharing and
+              background processes. Default: 100.
+
+       -maxfpsstrict
+              Strictly Regulated fps. Default: 0.
+
+       -buffer
+              Display Buffer Mode. Default: 1.
+
+       -[no]shadow
+              Use Software Shadow Buffer. Default: On.
+
+       -videomode
+              Video Mode. Default: 17200.
+
+       -[no]vsync
+              Enable Vertical Sync. Default: On.
+
+       -videopages
+              Number of Video Pages. Default: -1.
+
+       -scalemode
+              Scaling Filter Mode. Default: 1.
+
+       -[no]dither
+              Use Dithering. Default: On.
+
+       -dither_type
+              Dither Type. Default: 0.
+
+       -[no]broken_rgba8
+              Broken RGBA (OpenGL). Default: Off.
+
+       -[no]alpha
+              Use Alpha Blending. Default: On.
+
+       -brightness
+              Brightness. Default: 100.
+
+       -contrast
+              Contrast. Default: 100.
+
+       -files Specify the root path of the game. Default: ""
+
+       -gfx   Specify the path to the game's graphics data. Default: ""
+
+       -sfx   Specify the path to the game's sound data. Default: ""
+
+       -scores
+              Specify the path to the game's score files. Default: ""
+
+       -size  (Not saved!) Screen Size (Obsolete). Default: 0.
+
+       -wait  Game Speed (Obsolete). Default: 30.
+
+       -bgm   (Not saved!) Background Music File (Obsolete). Default: ""
+
+       -threshold
+              (Not saved!) Limiter Gain. Default: 200.
+
+       -release
+              (Not saved!) Limiter Speed. Default: 50.
+
+       -internalres
+              (Not saved!) Texture Resolution. Default: 1.
+
+       -last_profile
+              Last used player profile. Default: 0.
+
+       -number_of_joysticks
+              Number of Connected Joysticks. Default: 0.
+
+       -[no]showcfg
+              (Not saved!) Show Configuration. Default: Off.
+
+       -[no]hiscores
+              (Not saved!) List High Scores. Default: Off.
+
+       -[no]highscores
+              (Not saved!) List High Scores. Default: Off.
+
+       -[no]override
+              (Not saved!) Ignore Configuration File. Default: Off.
+
+       -[no]debug
+              (Not saved!) Enable Debug Features. Default: Off.
+
+       -[no]fps
+              (Not saved!) Display frames per second in game screen.  Default:
+              Off.
+
+       -[no]noframe
+              (Not  saved!)  Do  not  render rounded corners on the playfield.
+              Default: Off.
+
+       -[no]midi
+              (Not saved!) Enable MIDI Input. Default: Off.
+
+       -[no]cheat
+              (Not saved!) Enable/disable cheat mode. Cheat  mode  allows  any
+              level  to be played, but highscores are not saved! Default: Off.
+
+       -[no]indicator
+              (Not saved!) Enable Collision Indicator Mode. Default: Off.
+
+       -[no]pushmove
+              (Not saved!) Enable Push Move Mode. Default: Off.
+
+       -[no]noparachute
+              (Not saved!) Disable SDL Parachute. Default: Off.
+
+       -[no]pollaudio
+              (Not saved!) Use Polling Audio Output. Default: Off.
+
+       -[no]autoshot
+              (Not saved!) Ingame screenshots/movie. Default: Off.
+
+       -[no]help
+              (Not saved!) Print usage info and exit. Default: Off.
+
+       -[no]options_man
+              (Not saved!) Print options for 'man'. Default: Off.
+
+FILES
+       ~/.kobodlrc
+              The per-user configuration file for Kobo Deluxe.
+
+AUTHORS
+       Originally  written  by  Akira  Higuchi  (a-higuti@math.hokudai.ac.jp),
+       XKobo was turned into Kobo Deluxe by David Olofson <david@olofson.net>
+
+THANKS
+       Thanks, in no particular order, to...
+
+       Akira Higuchi
+              Author of the Original XKobo.
+
+       Masanao Izumo
+              Sound effects and original sound engine.
+
+       Torsten Giebl
+              Slackware.
+
+       David Andersson
+              Various Good Ideas.
+
+       Max Horn
+              Mac OS X & Build Script Patches.
+
+       Jeremy Sheeley
+              Player Profiles.
+
+       Tsuyoshi Iguchi
+              FreeBSD, NetBSD.
+
+       Samuel Hart
+              Joystick Support.
+
+       G. Low Solaris.
+
+       Gerry Jo Trick Jellestad
+              Testing and ideas.
+
+       Riki   Intel Compiler.
+
+       Andreas Spaangberg
+              Sun Compiler & Bug Spotting.
+
+       SixK   Amiga Port.
+
+       Joey Hess
+              Debian.
+
+       Martijn van Oosterhout
+              FPS limiter.
+
+       Antonio Messina
+              Stage 1601+ difficulty wrap, Always Fire option.
+
+       Hans de Goede
+              Audio buffer handling bug.
+
+       Marianne Ibbotson
+              "Autopause" idea.
+
+       Sam Palmer
+              MS Windows testing.
+
+       Michael Sterrett
+              glSDL issues.
+
+       Sam Lantinga & Others
+              SDL, the Simple DirectMedia library.
+
+       Members of the SDL mailing list
+              Testing and ideas.
+
+COPYRIGHT
+       Copyright (c) 1995, 1996 Akira Higuchi
+       Copyright (C) 1997 Masanao Izumo
+       Copyright (C) 1999-2001 Simon Peter
+       Copyright (C) 2002 Florian Schulze
+       Copyright (C) 2002 Jeremy Sheeley
+       Copyright (C) 2005 Erik Auerswald
+       Copyright (c) 1999-2007 David Olofson
+
+       Kobo  Deluxe is free software; you can redistribute it and/or modify it
+       under the terms of the GNU General Public License.

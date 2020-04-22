@@ -1,0 +1,2 @@
+#!/bin/sh
+CFLAGS="-O3" CXXFLAGS="-O3" ./configure --enable-debug --enable-alsa --enable-opengl --enable-oss

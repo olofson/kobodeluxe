@@ -1,0 +1,6 @@
+
+you may need to do this to make kobo work:
+
+  % sudo mkdir -p -m 777 /Library/Preferences/KoboDeluxe/scores
+
+

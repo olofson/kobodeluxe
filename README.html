@@ -1,0 +1,803 @@
+<!-- Creator     : groff version 1.19.2 -->
+<!-- CreationDate: Sat Dec 15 10:38:40 2007 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p     { margin-top: 0; margin-bottom: 0; }
+       pre   { margin-top: 0; margin-bottom: 0; }
+       table { margin-top: 0; margin-bottom: 0; }
+</style>
+<title>KOBODL</title>
+
+</head>
+<body>
+
+<h1 align=center>KOBODL</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#CONTROLS">CONTROLS</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#FILES">FILES</a><br>
+<a href="#AUTHORS">AUTHORS</a><br>
+<a href="#THANKS">THANKS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<a name="NAME"></a>
+<h2>NAME</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">kobodl - Kobo
+Deluxe, an enhanced version of the scrolling game XKobo</p>
+
+<a name="SYNOPSIS"></a>
+<h2>SYNOPSIS</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>kobodl</b> [
+<i>options</i> ]</p>
+
+<a name="DESCRIPTION"></a>
+<h2>DESCRIPTION</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Kobo Deluxe is
+a 3&rsquo;rd person scrolling 2D shooter with a simple and
+responsive control system - which you&rsquo;ll need to
+tackle the tons of enemy ships that shoot at you, chase you,
+circle around you shooting, or even launch other ships at
+you, while you&rsquo;re trying to destroy the labyrinth
+shaped bases. There are 50 action packed levels with
+smoothly increasing difficulty, and different combinations
+of enemies that require different tactics to be dealt with
+successfully.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Kobo Deluxe has
+an improved graphics engine that delivers smoother
+animation, while keeping the game logic totally accurate and
+predictable regardless of frame rate. It also adds sound
+effects, new graphics, fullscreen mode, four extra skill
+levels with smoother gameplay and various other features
+expected from a modern game. (There is still a
+&quot;Clasic&quot; mode that plays exactly like the original
+XKobo.)</p>
+
+<p style="margin-left:11%; margin-top: 1em">Kobo Deluxe
+uses SDL for sound, graphics and input, and builds and runs
+on all major operating systems, as well as some more unusual
+platforms. It can also use OpenGL for accelerated rendering,
+through glSDL.</p>
+
+<p style="margin-left:11%; margin-top: 1em">In short, Kobo
+Deluxe is loads of classical arcade style fun for just about
+any machine with graphics and sound!</p>
+
+<a name="CONTROLS"></a>
+<h2>CONTROLS</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The ship can be
+controlled with the keyboard, or optionally a mouse or
+joystick. With the keyboard, the arrow keys move the ship
+(two keys for diagonals), and the shift and ctrl keys
+shoots. The numeric key pad can also be used; the usual
+2/4/6/8 (arrows), and also 1/3/7/9 for single key diagonals.
+Escape enters the meny system, from where it is possible to
+change settings, start a new game or exit the game.</p>
+
+<a name="OPTIONS"></a>
+<h2>OPTIONS</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Note that all
+relevant options can be also configured in the config file,
+which can be edited directly, or using the options menus in
+the game. <b><br>
+&minus;[no]logfile</b></p>
+
+<p style="margin-left:22%;">Log To File. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;logformat</b></p>
+
+<p style="margin-left:22%;">Log File Format. Default:
+0.</p>
+
+<p style="margin-left:11%;"><b>&minus;logverbosity</b></p>
+
+<p style="margin-left:22%;">Log Verbosity Level. Default:
+2.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]joystick</b></p>
+
+<p style="margin-left:22%;">Use Joystick. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;joystick_no</b></p>
+
+<p style="margin-left:22%;">Joystick Number. Default:
+0.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]mouse</b></p>
+
+<p style="margin-left:22%;">Use Mouse. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;mousemode</b></p>
+
+<p style="margin-left:22%;">Mouse Control Mode. Default:
+1.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]broken_numdia</b></p>
+
+<p style="margin-left:22%;">Broken NumPad Diagonals.
+Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;dia_emphasis</b></p>
+
+<p style="margin-left:22%;">Diagonals Emphasis Filter.
+Default: 0.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]always_fire</b></p>
+
+<p style="margin-left:22%;">Always Fire. Default: Off.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]mousecapture</b></p>
+
+<p style="margin-left:22%;">In-game Mouse Capture. Default:
+On.</p>
+
+<p style="margin-left:11%;"><b>&minus;scrollradar</b></p>
+
+<p style="margin-left:22%;">Radar Scroll Mode. Default:
+2.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]filter</b></p>
+
+<p style="margin-left:22%;">Enable/disable motion
+interpolation. Interpolation is what makes animation smooth
+at high frame rates despite the game logic running at 33.33
+fps. However, it also adds some input latency! Default:
+On.</p>
+
+<p style="margin-left:11%;"><b>&minus;timefilter</b></p>
+
+<p style="margin-left:22%;">Time filter, for smoothing out
+timing jitter induced by the operating system. Default:
+50.</p>
+
+<p style="margin-left:11%;"><b>&minus;countdown</b></p>
+
+<p style="margin-left:22%;">Get Ready Countdown. Default:
+5.</p>
+
+<p style="margin-left:11%;"><b>&minus;starfield</b></p>
+
+<p style="margin-left:22%;">Starfield Style. Default:
+2.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;stars</b></p> </td>
+<td width="2%"></td>
+<td width="60%">
+
+
+<p style="margin-top: 1em" valign="top">Number of Parallax
+Stars. Default: 500.</p></td>
+<td width="18%">
+</td>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;[no]sound</b></p>
+
+<p style="margin-left:22%;">Enable Sound. Default: On.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]music</b></p>
+
+<p style="margin-left:22%;">Enable Music. Default: On.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]cached_sounds</b></p>
+
+<p style="margin-left:22%;">Use Cached Sounds. Default:
+Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]oss</b></p>
+
+<p style="margin-left:22%;">Use OSS Sound Driver. Default:
+Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;samplerate</b></p>
+
+<p style="margin-left:22%;">Sample Rate. Default:
+44100.</p>
+
+<p style="margin-left:11%;"><b>&minus;latency</b></p>
+
+<p style="margin-left:22%;">Sound Latency. Default: 50.</p>
+
+<p style="margin-left:11%;"><b>&minus;mixquality</b></p>
+
+<p style="margin-left:22%;">Mixing Quality. Default: 3.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="6%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;vol</b></p> </td>
+<td width="5%"></td>
+<td width="43%">
+
+
+<p style="margin-top: 1em" valign="top">Master Volume.
+Default: 100.</p></td>
+<td width="35%">
+</td>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;intro_vol</b></p>
+
+<p style="margin-left:22%;">Intro Music Volume. Default:
+100.</p>
+
+<p style="margin-left:11%;"><b>&minus;sfx_vol</b></p>
+
+<p style="margin-left:22%;">Sound Effects Volume. Default:
+100.</p>
+
+<p style="margin-left:11%;"><b>&minus;music_vol</b></p>
+
+<p style="margin-left:22%;">In-Game Music Volume. Default:
+50.</p>
+
+<p style="margin-left:11%;"><b>&minus;reverb</b></p>
+
+<p style="margin-left:22%;">Reverb Level. Default: 100.</p>
+
+<p style="margin-left:11%;"><b>&minus;vol_boost</b></p>
+
+<p style="margin-left:22%;">Volume Boost. Default: 0.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]fullscreen</b></p>
+
+<p style="margin-left:22%;">Fullscreen Display. Default:
+Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;videodriver</b></p>
+
+<p style="margin-left:22%;">Display Driver. Default: 0.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;width</b></p> </td>
+<td width="2%"></td>
+<td width="55%">
+
+
+<p style="margin-top: 1em" valign="top">Horizontal
+Resolution. Default: 640.</p></td>
+<td width="23%">
+</td>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;height</b></p>
+
+<p style="margin-left:22%;">Vertical Resolution. Default:
+480.</p>
+
+<p style="margin-left:11%;"><b>&minus;aspect</b></p>
+
+<p style="margin-left:22%;">Pixel Aspect Ratio. Default:
+1000.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;depth</b></p> </td>
+<td width="2%"></td>
+<td width="40%">
+
+
+<p style="margin-top: 1em" valign="top">Display Depth.
+Default: 0.</p></td>
+<td width="38%">
+</td>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;maxfps</b></p>
+
+<p style="margin-left:22%;">Limit the framerate (fps).
+Saves power on laptops (75 works well), and can also avoid
+long stalls due to timesharing and background processes.
+Default: 100.</p>
+
+<p style="margin-left:11%;"><b>&minus;maxfpsstrict</b></p>
+
+<p style="margin-left:22%;">Strictly Regulated fps.
+Default: 0.</p>
+
+<p style="margin-left:11%;"><b>&minus;buffer</b></p>
+
+<p style="margin-left:22%;">Display Buffer Mode. Default:
+1.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]shadow</b></p>
+
+<p style="margin-left:22%;">Use Software Shadow Buffer.
+Default: On.</p>
+
+<p style="margin-left:11%;"><b>&minus;videomode</b></p>
+
+<p style="margin-left:22%;">Video Mode. Default: 17200.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]vsync</b></p>
+
+<p style="margin-left:22%;">Enable Vertical Sync. Default:
+On.</p>
+
+<p style="margin-left:11%;"><b>&minus;videopages</b></p>
+
+<p style="margin-left:22%;">Number of Video Pages. Default:
+-1.</p>
+
+<p style="margin-left:11%;"><b>&minus;scalemode</b></p>
+
+<p style="margin-left:22%;">Scaling Filter Mode. Default:
+1.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]dither</b></p>
+
+<p style="margin-left:22%;">Use Dithering. Default: On.</p>
+
+<p style="margin-left:11%;"><b>&minus;dither_type</b></p>
+
+<p style="margin-left:22%;">Dither Type. Default: 0.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]broken_rgba8</b></p>
+
+<p style="margin-left:22%;">Broken RGBA (OpenGL). Default:
+Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]alpha</b></p>
+
+<p style="margin-left:22%;">Use Alpha Blending. Default:
+On.</p>
+
+<p style="margin-left:11%;"><b>&minus;brightness</b></p>
+
+<p style="margin-left:22%;">Brightness. Default: 100.</p>
+
+<p style="margin-left:11%;"><b>&minus;contrast</b></p>
+
+<p style="margin-left:22%;">Contrast. Default: 100.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;files</b></p> </td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Specify the root
+path of the game. Default: &quot;&quot;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;gfx</b></p> </td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Specify the path to
+the game&rsquo;s graphics data. Default: &quot;&quot;</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;sfx</b></p> </td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Specify the path to
+the game&rsquo;s sound data. Default: &quot;&quot;</p></td>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;scores</b></p>
+
+<p style="margin-left:22%;">Specify the path to the
+game&rsquo;s score files. Default: &quot;&quot;</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;size</b></p> </td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">(Not saved!) Screen
+Size (Obsolete). Default: 0.</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;wait</b></p> </td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">Game Speed
+(Obsolete). Default: 30.</p></td>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+
+<p style="margin-top: 1em" valign="top"><b>&minus;bgm</b></p> </td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em" valign="top">(Not saved!)
+Background Music File (Obsolete). Default: &quot;&quot;</p></td>
+</table>
+
+<p style="margin-left:11%;"><b>&minus;threshold</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Limiter Gain.
+Default: 200.</p>
+
+<p style="margin-left:11%;"><b>&minus;release</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Limiter Speed.
+Default: 50.</p>
+
+<p style="margin-left:11%;"><b>&minus;internalres</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Texture
+Resolution. Default: 1.</p>
+
+<p style="margin-left:11%;"><b>&minus;last_profile</b></p>
+
+<p style="margin-left:22%;">Last used player profile.
+Default: 0.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;number_of_joysticks</b></p>
+
+<p style="margin-left:22%;">Number of Connected Joysticks.
+Default: 0.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]showcfg</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Show
+Configuration. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]hiscores</b></p>
+
+<p style="margin-left:22%;">(Not saved!) List High Scores.
+Default: Off.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]highscores</b></p>
+
+<p style="margin-left:22%;">(Not saved!) List High Scores.
+Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]override</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Ignore
+Configuration File. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]debug</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Enable Debug
+Features. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]fps</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Display frames per
+second in game screen. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]noframe</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Do not render
+rounded corners on the playfield. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]midi</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Enable MIDI Input.
+Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]cheat</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Enable/disable
+cheat mode. Cheat mode allows any level to be played, but
+highscores are not saved! Default: Off.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]indicator</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Enable Collision
+Indicator Mode. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]pushmove</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Enable Push Move
+Mode. Default: Off.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]noparachute</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Disable SDL
+Parachute. Default: Off.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]pollaudio</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Use Polling Audio
+Output. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]autoshot</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Ingame
+screenshots/movie. Default: Off.</p>
+
+<p style="margin-left:11%;"><b>&minus;[no]help</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Print usage info
+and exit. Default: Off.</p>
+
+
+<p style="margin-left:11%;"><b>&minus;[no]options_man</b></p>
+
+<p style="margin-left:22%;">(Not saved!) Print options for
+&rsquo;man&rsquo;. Default: Off.</p>
+
+<a name="FILES"></a>
+<h2>FILES</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>~/.kobodlrc</b></p>
+
+<p style="margin-left:22%;">The per-user configuration file
+for Kobo Deluxe.</p>
+
+<a name="AUTHORS"></a>
+<h2>AUTHORS</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Originally
+written by Akira Higuchi (a-higuti@math.hokudai.ac.jp),
+XKobo was turned into Kobo Deluxe by David Olofson
+&lt;david@olofson.net&gt;</p>
+
+<a name="THANKS"></a>
+<h2>THANKS</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Thanks, in no
+particular order, to... <b><br>
+Akira Higuchi</b></p>
+
+<p style="margin-left:22%;">Author of the Original
+XKobo.</p>
+
+<p style="margin-left:11%;"><b>Masanao Izumo</b></p>
+
+<p style="margin-left:22%;">Sound effects and original
+sound engine.</p>
+
+<p style="margin-left:11%;"><b>Torsten Giebl</b></p>
+
+<p style="margin-left:22%;">Slackware.</p>
+
+<p style="margin-left:11%;"><b>David Andersson</b></p>
+
+<p style="margin-left:22%;">Various Good Ideas.</p>
+
+<p style="margin-left:11%;"><b>Max Horn</b></p>
+
+<p style="margin-left:22%;">Mac OS X &amp; Build Script
+Patches.</p>
+
+<p style="margin-left:11%;"><b>Jeremy Sheeley</b></p>
+
+<p style="margin-left:22%;">Player Profiles.</p>
+
+<p style="margin-left:11%;"><b>Tsuyoshi Iguchi</b></p>
+
+<p style="margin-left:22%;">FreeBSD, NetBSD.</p>
+
+<p style="margin-left:11%;"><b>Samuel Hart</b></p>
+
+<p style="margin-left:22%;">Joystick Support.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p style="margin-top: 1em" valign="top"><b>G. Low</b></p></td>
+<td width="2%"></td>
+<td width="12%">
+
+
+<p style="margin-top: 1em" valign="top">Solaris.</p></td>
+<td width="66%">
+</td>
+</table>
+
+<p style="margin-left:11%;"><b>Gerry Jo Trick
+Jellestad</b></p>
+
+<p style="margin-left:22%;">Testing and ideas.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="6%">
+
+
+<p style="margin-top: 1em" valign="top"><b>Riki</b></p></td>
+<td width="5%"></td>
+<td width="23%">
+
+
+<p style="margin-top: 1em" valign="top">Intel Compiler.</p></td>
+<td width="55%">
+</td>
+</table>
+
+<p style="margin-left:11%;"><b>Andreas Spaangberg</b></p>
+
+<p style="margin-left:22%;">Sun Compiler &amp; Bug
+Spotting.</p>
+
+<table width="100%" border=0 rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="6%">
+
+
+<p style="margin-top: 1em" valign="top"><b>SixK</b></p></td>
+<td width="5%"></td>
+<td width="16%">
+
+
+<p style="margin-top: 1em" valign="top">Amiga Port.</p></td>
+<td width="62%">
+</td>
+</table>
+
+<p style="margin-left:11%;"><b>Joey Hess</b></p>
+
+<p style="margin-left:22%;">Debian.</p>
+
+<p style="margin-left:11%;"><b>Martijn van
+Oosterhout</b></p>
+
+<p style="margin-left:22%;">FPS limiter.</p>
+
+<p style="margin-left:11%;"><b>Antonio Messina</b></p>
+
+<p style="margin-left:22%;">Stage 1601+ difficulty wrap,
+Always Fire option.</p>
+
+<p style="margin-left:11%;"><b>Hans de Goede</b></p>
+
+<p style="margin-left:22%;">Audio buffer handling bug.</p>
+
+<p style="margin-left:11%;"><b>Marianne Ibbotson</b></p>
+
+<p style="margin-left:22%;">&quot;Autopause&quot; idea.</p>
+
+<p style="margin-left:11%;"><b>Sam Palmer</b></p>
+
+<p style="margin-left:22%;">MS Windows testing.</p>
+
+<p style="margin-left:11%;"><b>Michael Sterrett</b></p>
+
+<p style="margin-left:22%;">glSDL issues.</p>
+
+<p style="margin-left:11%;"><b>Sam Lantinga &amp;
+Others</b></p>
+
+<p style="margin-left:22%;">SDL, the Simple DirectMedia
+library.</p>
+
+<p style="margin-left:11%;"><b>Members of the SDL mailing
+list</b></p>
+
+<p style="margin-left:22%;">Testing and ideas.</p>
+
+<a name="COPYRIGHT"></a>
+<h2>COPYRIGHT</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright (c)
+1995, 1996 Akira Higuchi</p>
+
+<p style="margin-left:11%; margin-top: 1em">Copyright (C)
+1997 Masanao Izumo</p>
+
+<p style="margin-left:11%; margin-top: 1em">Copyright (C)
+1999-2001 Simon Peter</p>
+
+<p style="margin-left:11%; margin-top: 1em">Copyright (C)
+2002 Florian Schulze</p>
+
+<p style="margin-left:11%; margin-top: 1em">Copyright (C)
+2002 Jeremy Sheeley</p>
+
+<p style="margin-left:11%; margin-top: 1em">Copyright (C)
+2005 Erik Auerswald</p>
+
+<p style="margin-left:11%; margin-top: 1em">Copyright (c)
+1999-2007 David Olofson</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Kobo
+Deluxe</b> is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public
+License.</p>
+<hr>
+</body>
+</html>
