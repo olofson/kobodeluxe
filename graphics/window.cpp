@@ -2,7 +2,7 @@
 ---------------------------------------------------------------------------
 	window.cpp - Generic Rendering Window
 ---------------------------------------------------------------------------
- * Copyright (C) 2001-2003, 2006, 2007 David Olofson
+ * Copyright (C) 2001-2003, 2006, 2007, 2020 David Olofson
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published by
@@ -398,7 +398,7 @@ void window_t::center_token_fxp(int _x, int _y, const char *txt, char token)
 		 */
 		if(token)
 		{
-			char *tok = strchr(txt, token);
+			const char *tok = strchr(txt, token);
 			if(tok)
 				tokpos = tok-txt;
 			else

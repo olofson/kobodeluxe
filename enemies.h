@@ -3,7 +3,7 @@
    Kobo Deluxe - An enhanced SDL port of XKobo
 ------------------------------------------------------------
  * Copyright (C) 1995, 1996 Akira Higuchi
- * Copyright (C) 2001-2003, 2007 David Olofson
+ * Copyright (C) 2001-2003, 2007, 2020 David Olofson
  * 
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -70,9 +70,9 @@ extern const enemy_kind bomb1;
 extern const enemy_kind bomb2;
 extern const enemy_kind bombdeto;
 extern const enemy_kind cannon;
-extern const enemy_kind pipe1;
+extern const enemy_kind pipe_1;
 extern const enemy_kind core;
-extern const enemy_kind pipe2;
+extern const enemy_kind pipe_2;
 extern const enemy_kind rock;
 extern const enemy_kind ring;
 extern const enemy_kind enemy_m1;
@@ -157,11 +157,11 @@ class _enemy
 	void move_core();
 	void kill_core();
 
-	void make_pipe1();
-	void move_pipe1();
+	void make_pipe_1();
+	void move_pipe_1();
 
-	void make_pipe2();
-	void move_pipe2();
+	void make_pipe_2();
+	void move_pipe_2();
 
 	void make_enemy1();
 	void move_enemy1();
@@ -430,7 +430,7 @@ inline int _enemy::realize()
 
 inline int _enemy::is_pipe()
 {
-	return ((_state != notuse) && ((ek == &pipe1) || (ek == &pipe2)));
+	return ((_state != notuse) && ((ek == &pipe_1) || (ek == &pipe_2)));
 }
 
 

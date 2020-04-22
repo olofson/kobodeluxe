@@ -3,7 +3,7 @@
    Kobo Deluxe - An enhanced SDL port of XKobo
 ------------------------------------------------------------
  * Copyright (C) 1995, 1996 Akira Higuchi
- * Copyright (C) 2001-2003, 2007 David Olofson
+ * Copyright (C) 2001-2003, 2007, 2020 David Olofson
  * 
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -713,7 +713,7 @@ void _enemy::move_cannon()
 
 void _enemy::kill_cannon()
 {
-	enemies.make(&pipe1, CS2PIXEL(x), CS2PIXEL(y));
+	enemies.make(&pipe_1, CS2PIXEL(x), CS2PIXEL(y));
 	sound.g_base_node_explo(x, y);
 	release();
 }
@@ -755,10 +755,10 @@ void _enemy::move_core()
 
 void _enemy::kill_core()
 {
-	enemies.make(&pipe2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 3);
-	enemies.make(&pipe2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 7);
-	enemies.make(&pipe2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 1);
-	enemies.make(&pipe2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 5);
+	enemies.make(&pipe_2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 3);
+	enemies.make(&pipe_2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 7);
+	enemies.make(&pipe_2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 1);
+	enemies.make(&pipe_2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 5);
 	enemies.make(&explosion4, CS2PIXEL(x), CS2PIXEL(y));
 	sound.g_base_core_explo(x, y);
 	release();
@@ -780,7 +780,7 @@ const enemy_kind core = {
  *                                pipe1
  * ===========================================================================
  */
-void _enemy::make_pipe1()
+void _enemy::make_pipe_1()
 {
 	health = 1;
 	damage = 0;
@@ -790,7 +790,7 @@ void _enemy::make_pipe1()
 	b = 0;
 }
 
-void _enemy::move_pipe1()
+void _enemy::move_pipe_1()
 {
 	sound.g_pipe_rumble(x, y);
 	if((norm < ((VIEWLIMIT >> 1) + 32)) && (count == 1))
@@ -851,10 +851,10 @@ void _enemy::move_pipe1()
 		screen.set_map(x1, y1, m ^ a);
 	release();
 }
-const enemy_kind pipe1 = {
+const enemy_kind pipe_1 = {
 	0,
-	&_enemy::make_pipe1,
-	&_enemy::move_pipe1,
+	&_enemy::make_pipe_1,
+	&_enemy::move_pipe_1,
 	&_enemy::kill_default,
 	-1,
 	-1, 0,
@@ -863,10 +863,10 @@ const enemy_kind pipe1 = {
 
 /*
  * ===========================================================================
- *                                pipe2
+ *                                pipe_2
  * ===========================================================================
  */
-void _enemy::make_pipe2()
+void _enemy::make_pipe_2()
 {
 	int x1 = (CS2PIXEL(x) & (WORLD_SIZEX - 1)) >> 4;
 	int y1 = (CS2PIXEL(y) & (WORLD_SIZEY - 1)) >> 4;
@@ -898,7 +898,7 @@ void _enemy::make_pipe2()
 }
 
 
-void _enemy::move_pipe2()
+void _enemy::move_pipe_2()
 {
 	if((norm < ((VIEWLIMIT >> 1) + 32)) && (count == 1))
 		enemies.make(&explosion,
@@ -978,22 +978,22 @@ void _enemy::move_pipe2()
 	}
 	p ^= a;
 	if(p & U_MASK)
-		enemies.make(&pipe2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 1);
+		enemies.make(&pipe_2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 1);
 	if(p & R_MASK)
-		enemies.make(&pipe2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 3);
+		enemies.make(&pipe_2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 3);
 	if(p & D_MASK)
-		enemies.make(&pipe2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 5);
+		enemies.make(&pipe_2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 5);
 	if(p & L_MASK)
-		enemies.make(&pipe2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 7);
+		enemies.make(&pipe_2, CS2PIXEL(x), CS2PIXEL(y), 0, 0, 7);
 	manage.add_score(10);
 	release();
 }
 
 
-const enemy_kind pipe2 = {
+const enemy_kind pipe_2 = {
 	0,
-	&_enemy::make_pipe2,
-	&_enemy::move_pipe2,
+	&_enemy::make_pipe_2,
+	&_enemy::move_pipe_2,
 	&_enemy::kill_default,
 	-1,
 	-1, 0,
