@@ -141,30 +141,20 @@ static void setup_dirs(char *xpath)
 	 * Graphics data
 	 */
 	/* Current dir; from within the build tree */
-	fmap->addpath("GFX", "./data/gfx");
 	/* Real data dir */
 	fmap->addpath("GFX", "DATA>>gfx");
-	/* Current dir */
-	fmap->addpath("GFX", "./gfx");
 
 	/*
 	 * Sound data
 	 */
 	/* Current dir; from within the build tree */
-	fmap->addpath("SFX", "./data/sfx");
 	/* Real data dir */
 	fmap->addpath("SFX", "DATA>>sfx");
-	/* Current dir */
-	fmap->addpath("SFX", "./sfx");
 
 	/*
 	 * Score files (user and global)
 	 */
 	fmap->addpath("SCORES", KOBO_SCORE_DIR);
-	/* 'scores' in current dir (For importing scores, perhaps...) */
-// (Disabled for now, since filemapper_t can't tell
-// when it hits the same dir more than once...)
-//	fmap->addpath("SCORES", "./scores");
 
 	/*
 	 * Configuration files
@@ -172,8 +162,6 @@ static void setup_dirs(char *xpath)
 	fmap->addpath("CONFIG", KOBO_CONFIG_DIR);
 	/* System local */
 	fmap->addpath("CONFIG", SYSCONF_DIR);
-	/* In current dir (last resort) */
-	fmap->addpath("CONFIG", "./");
 }
 
 
