@@ -161,7 +161,7 @@ void prefs_t::postload()
 
 	if((o_wait_msec != 30) && !cmd_cheat)
 	{
-		log_printf(ELOG, "'wait' is only avaliable in cheat mode!\n");
+		log_printf(ELOG, "'wait' is only available in cheat mode!\n");
 		o_wait_msec = 30;
 	}
 

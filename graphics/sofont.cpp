@@ -255,7 +255,7 @@ bool SoFont::load(SDL_Surface * FontSurface)
 
 	if(!FontSurface)
 	{
-		log_printf(ELOG, "SoFont recieved a NULL SDL_Surface\n");
+		log_printf(ELOG, "SoFont received a NULL SDL_Surface\n");
 		return false;
 	}
 	if(picture)
