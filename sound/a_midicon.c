@@ -120,8 +120,8 @@ static inline void __press(unsigned ch, unsigned key)
 {
 	m[ch].next[key] = -1;
 	m[ch].prev[key] = m[ch].last;
-	m[ch].next[m[ch].last] = (char)key;
 	m[ch].last = (char)key;
+	m[ch].next[m[ch].last] = (char)key;
 }
 
 
