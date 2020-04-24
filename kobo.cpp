@@ -1691,7 +1691,7 @@ void kobo_gfxengine_t::frame()
 			break;
 		  case SDL_ACTIVEEVENT:
 			// Any type of focus loss should activate pause mode!
-			if(!ev.active.gain)
+			if(!ev.active.gain && ev.active.state != SDL_APPINPUTFOCUS)
 				km.pause_game();
 			break;
 		  case SDL_QUIT:
