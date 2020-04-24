@@ -265,10 +265,10 @@ class window_t
 	void font(int fnt);
 	void string(int _x, int _y, const char *txt);
 	void center(int _y, const char *txt);
-	void center_token(int _x, int _y, const char *txt, char token = 0);
+	void center_token(int _x, int _y, const char *txt, signed char token = 0);
 	void string_fxp(int _x, int _y, const char *txt);
 	void center_fxp(int _y, const char *txt);
-	void center_token_fxp(int _x, int _y, const char *txt, char token = 0);
+	void center_token_fxp(int _x, int _y, const char *txt, signed char token = 0);
 	int textwidth(const char *txt, int min = 0, int max = 255);
 	int textwidth_fxp(const char *txt, int min = 0, int max = 255);
 	int fontheight();
