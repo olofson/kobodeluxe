@@ -2,7 +2,7 @@
 ------------------------------------------------------------
    Kobo Deluxe - An enhanced SDL port of XKobo
 ------------------------------------------------------------
- * Copyright (C) 2001-2003, 2007 David Olofson
+ * Copyright (C) 2001-2003, 2007, 2020 David Olofson
  * Copyright (C) 2005 Erik Auerswald
  * 
  * This program is free software; you can redistribute it and/or modify it
@@ -23,7 +23,7 @@
 #ifndef	_KOBO_PREFS_H_
 #define	_KOBO_PREFS_H_
 
-#include "aconfig.h"
+#include "config.h"
 #include "cfgparse.h"
 
 class prefs_t : public config_parser_t

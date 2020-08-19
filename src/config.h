@@ -3,7 +3,7 @@
    Kobo Deluxe - An enhanced SDL port of XKobo
 ------------------------------------------------------------
  * Copyright (C) 1995, 1996, Akira Higuchi
- * Copyright (C) 2001-2003, David Olofson
+ * Copyright (C) 2001-2003, 2020 David Olofson
  * 
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -23,7 +23,7 @@
 #ifndef _KOBO_CONFIG_H_
 #define _KOBO_CONFIG_H_
 
-#include <aconfig.h>
+#include "buildconfig.h"
 
 #ifndef DEBUG
 #	undef	DBG
@@ -36,15 +36,15 @@
 #	define	DBG4(x)
 #endif
 
-#ifndef HAVE_SNPRINTF
-#ifndef HAVE__SNPRINTF
+#ifndef KOBO_HAVE_SNPRINTF
+#ifndef KOBO_HAVE__SNPRINTF
 #error	Must have snprintf() or _snprintf!
 #endif
 #define snprintf _snprintf
 #endif
 
-#ifndef HAVE_VSNPRINTF
-#ifndef HAVE__VSNPRINTF
+#ifndef KOBO_HAVE_VSNPRINTF
+#ifndef KOBO_HAVE__VSNPRINTF
 #error	Must have vsnprintf() or _vsnprintf!
 #endif
 #define vsnprintf _vsnprintf

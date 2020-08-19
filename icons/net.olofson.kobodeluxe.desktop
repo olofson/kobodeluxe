@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Kobo Deluxe
+GenericName=Arcade Game
+Comment=Arcade style 2D shooter
+TryExec=kobodl
+Exec=kobodl
+Icon=kobodl
+Terminal=false
+Categories=Application;Game;ArcadeGame;2DGraphics;

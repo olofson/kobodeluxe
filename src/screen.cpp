@@ -3,7 +3,7 @@
    Kobo Deluxe - An enhanced SDL port of XKobo
 ------------------------------------------------------------
  * Copyright (C) 1995, 1996, Akira Higuchi
- * Copyright (C) 2001-2003, 2005, 2007 David Olofson
+ * Copyright (C) 2001-2003, 2005, 2007, 2020 David Olofson
  * 
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -35,7 +35,6 @@
 #include "scenes.h"
 #include "config.h"
 #include "random.h"
-#include "version.h"
 
 int _screen::scene_max;
 int _screen::scene_num;
@@ -184,7 +183,7 @@ void _screen::title(int t, float fade, int mode)
 	if(fade > 0.9)
 	{
 		wmain->font(B_NORMAL_FONT);
-		wmain->center(132, KOBO_VERSION);
+		wmain->center(132, KOBO_VERSION_STRING);
 	}
 
 	// Cheat mode warning

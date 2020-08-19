@@ -2,7 +2,7 @@
 ------------------------------------------------------------
 	filemap.h - Simple Portable File Path Mapper
 ------------------------------------------------------------
- * © David Olofson, 2001
+ * Copyright (C) David Olofson, 2001, 2020
  * This code is released under the terms of the GNU LGPL.
  */
 
@@ -40,7 +40,7 @@
 #ifndef	_FILEMAP_H_
 #define	_FILEMAP_H_
 
-#include "aconfig.h"
+#include "config.h"
 
 #define	FM_DEREF_TOKEN	">>"
 

@@ -1,0 +1,114 @@
+#!/bin/sh
+
+#----------------------
+# --- Configuration ---
+#----------------------
+
+# Set to true to build SDL2, SDL2_image, libpng, and Audiality 2 for static
+# linking only.
+#
+# NOTE: This will NOT work if these libraries are already installed in the
+#       system!
+#
+# NOTE 2: Dynamic linking has not been tested after the recent changes, and
+#         there is at least one known problem: Libs will NOT be copied from the
+#         system, so packaging will only work if build-packages is run without
+#         any of these libraries installed in the system.
+#
+KOBO_STATIC_LINUX=true
+
+
+#--------------------
+# --- Kobo Deluxe ---
+#--------------------
+
+# Kobo Deluxe source git repository
+KDLREPO="https://github.com/olofson/kobodeluxe"
+
+# Official Kobo Deluxe home site (with downloads directory)
+KDLHOME="http://kobodeluxe.com"
+
+# Archive with Win32 SDL2 redistributables suitable for this release
+REDISTARCH="kobodeluxe-0.6.0-libs-redist-win32.tar.bz2"
+
+
+#--------------------
+# --- Audiality 2 ---
+#--------------------
+
+# Recommended Audiality 2 version for this Kobo Redux release
+#A2RELEASE=1.9.4
+
+# Audiality 2 git repository
+#A2REPO="https://github.com/olofson/audiality2"
+
+
+#------------
+# --- SDL ---
+#------------
+
+SDLRELEASE=1.2.15
+SDLURL="https://www.libsdl.org/release/SDL-${SDLRELEASE}.tar.gz"
+
+
+#-------------
+# --- SDL2 ---
+#-------------
+
+#SDLRELEASE=2.0.12
+#SDLURL="https://www.libsdl.org/release/SDL2-${SDLRELEASE}.tar.gz"
+
+
+#---------------
+# --- libpng ---
+#---------------
+
+#PNGRELEASE=1.6.37
+#PNGURL="ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-${PNGRELEASE}.tar.xz"
+
+
+#------------------
+# --- SDL_image ---
+#------------------
+
+IMGRELEASE=1.2.12
+IMGURL="https://www.libsdl.org/projects/SDL_image/release/SDL_image-${IMGRELEASE}.tar.gz"
+
+
+#-------------------
+# --- SDL2_image ---
+#-------------------
+
+#IMGRELEASE=2.0.5
+#IMGURL="https://www.libsdl.org/projects/SDL_image/release/SDL2_image-${IMGRELEASE}.tar.gz"
+
+
+#--------------------
+# --- Directories ---
+#--------------------
+
+# Root of the source tree
+SOURCEDIR="$(pwd)"
+
+# CMake top-level build directory. (NOTE: The actual build directories are
+# inside this one!)
+BUILDDIR="$(pwd)/build"
+
+# Staging directory for dependency library builds, downloads, packages etc
+WORKDIR="$(pwd)/work"
+
+# Download directory
+DLDIR="${WORKDIR}/downloads"
+
+# Final package output directory
+PKGDIR="${WORKDIR}/packages"
+
+
+#------------
+# --- MXE ---
+#------------
+
+# MinGW32 cross build using MXE (http://mxe.cc/)
+if [ -z $MXEPATH ]; then
+	MXEPATH=/usr/lib/mxe/
+fi

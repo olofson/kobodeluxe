@@ -2,8 +2,8 @@
 ------------------------------------------------------------
    Kobo Deluxe - An enhanced SDL port of XKobo
 ------------------------------------------------------------
- * Copyright (C) 1995, 1996 Akira Higuchi
- * Copyright (C) 2001-2003, 2005-2007 David Olofson
+ * Copyright (C) §95, 1996 Akira Higuchi
+ * Copyright (C) 2001-2003, 2005-2007, 2020 David Olofson
  * Copyright (C) 2005 Erik Auerswald
  * 
  * This program is free software; you can redistribute it and/or modify it
@@ -57,7 +57,6 @@ extern "C" {
 #include "score.h"
 #include "gamectl.h"
 #include "random.h"
-#include "version.h"
 #include "options.h"
 #include "myship.h"
 #include "enemies.h"
@@ -135,7 +134,10 @@ static void setup_dirs(char *xpath)
 {
 	fmap->exepath(xpath);
 
-	fmap->addpath("DATA", KOBO_DATA_DIR);
+#ifdef KOBO_DATADIR
+	fmap->addpath("DATA", KOBO_DATADIR);
+#endif
+	fmap->addpath("DATA", "EXE>>");		// Next to the executable
 
 	/*
 	 * Graphics data
@@ -154,14 +156,20 @@ static void setup_dirs(char *xpath)
 	/*
 	 * Score files (user and global)
 	 */
-	fmap->addpath("SCORES", KOBO_SCORE_DIR);
+#ifdef KOBO_USERDIR
+	fmap->addpath("SCORES", KOBO_USERDIR);
+#endif
 
 	/*
 	 * Configuration files
 	 */
-	fmap->addpath("CONFIG", KOBO_CONFIG_DIR);
+#ifdef KOBO_USERDIR
+	fmap->addpath("CONFIG", KOBO_USERDIR);
+#endif
 	/* System local */
-	fmap->addpath("CONFIG", SYSCONF_DIR);
+#ifdef KOBO_SYSCONFDIR
+	fmap->addpath("CONFIG", KOBO_SYSCONFDIR);
+#endif
 }
 
 
@@ -624,7 +632,7 @@ int KOBO_main::init_display(prefs_t *p)
 {
 	int dw, dh;		// Display size
 	int gw, gh;		// Game "window" size
-	gengine->title("Kobo Deluxe " VERSION, "kobodl");
+	gengine->title("Kobo Deluxe " KOBO_VERSION_STRING, "kobodl");
 	gengine->driver((gfx_drivers_t)p->videodriver);
 
 	dw = p->width;
@@ -1278,7 +1286,7 @@ void KOBO_main::close_js()
 
 void KOBO_main::load_config(prefs_t *p)
 {
-	FILE *f = fmap->fopen(KOBO_CONFIG_DIR "/" KOBO_CONFIG_FILE, "r");
+	FILE *f = fmap->fopen("CONFIG>>" KOBO_CONFIGFILE, "r");
 	if(f)
 	{
 		p->read(f);
@@ -1299,7 +1307,7 @@ void KOBO_main::save_config(prefs_t *p)
 		return;
 	}
 #endif
-	f = fmap->fopen(KOBO_CONFIG_DIR "/" KOBO_CONFIG_FILE, "w");
+	f = fmap->fopen("CONFIG>>" KOBO_CONFIGFILE, "w");
 	if(f)
 	{
 		p->write(f);
@@ -1952,7 +1960,7 @@ void kobo_gfxengine_t::post_render()
 
 static void put_usage()
 {
-	printf("\nKobo Deluxe %s\n", KOBO_VERSION);
+	printf("\nKobo Deluxe %s\n", KOBO_VERSION_STRING);
 	printf("Usage: kobodl [<options>]\n");
 	printf("Recognized options:\n");
 	int s = -1;

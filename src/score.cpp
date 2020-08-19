@@ -4,7 +4,7 @@
 ------------------------------------------------------------
  * Copyright (C) 1995, 1996 Akira Higuchi
  * Copyright (C) 2002 Jeremy Sheeley
- * Copyright (C) 2001-2003, 2007 David Olofson
+ * Copyright (C) 2001-2003, 2007, 2020 David Olofson
  * 
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -32,21 +32,9 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#if HAVE_DIRENT_H
-# include <dirent.h>
-# define NAMLEN(dirent) strlen((dirent)->d_name)
-#else
-# define dirent direct
-# define NAMLEN(dirent) (dirent)->d_namlen
-# if HAVE_SYS_NDIR_H
-#  include <sys/ndir.h>
-# endif
-# if HAVE_SYS_DIR_H
-#  include <sys/dir.h>
-# endif
-# if HAVE_NDIR_H
-#  include <ndir.h>
-# endif
+#ifdef KOBO_HAVE_STAT
+#include <sys/stat.h>
+#include <unistd.h>
 #endif
 
 #if !defined(WIN32) && !defined(MACOS)
@@ -294,7 +282,7 @@ int s_profile_t::save()
 
 //The "safe list"; platforms that do not have symlinks:
 #if !defined(WIN32)
-#ifdef HAVE_STAT
+#ifdef KOBO_HAVE_STAT
 	// We will not write score files via symlinks!
 	struct stat statbuf;
 	if(lstat(filename, &statbuf) < 0)
@@ -319,7 +307,7 @@ int s_profile_t::save()
 #warning post a bug report to the Kobo Deluxe maintainer.
 #warning ================= SECURITY HAZARD =================
 #error (Remove this line to compile anyway.)
-#endif	/* HAVE_STAT */
+#endif	/* KOBO_HAVE_STAT */
 #endif	/* "Safe list" */
 
 	FILE *f = fopen(filename, "wb");

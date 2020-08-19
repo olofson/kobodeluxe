@@ -1,0 +1,27 @@
+#!/bin/sh
+. ./BUILDDEFS
+
+if [ ! -d "${WORKDIR}" ]; then
+	mkdir "${WORKDIR}"
+fi
+
+if [ -d "${WORKDIR}/win32-redist" ]; then
+	echo "Win32 redistributables (win32-redist) already in place!"
+	exit
+fi
+
+set -ex
+
+mkdir "${WORKDIR}/win32-redist"
+cd "${WORKDIR}/win32-redist"
+
+# Grab Win32 DLL package from koboredux.com
+wget "${KRHOME}/download/${REDISTARCH}"
+tar -xjvf ${REDISTARCH} --strip-components=1
+rm ${REDISTARCH}
+
+# Grab Audiality2 DLL and COPYING file from GitHub
+wget "${A2REPO}/releases/download/v${A2RELEASE}/libaudiality2.dll"
+wget https://raw.githubusercontent.com/olofson/audiality2/master/LICENSE.txt
+awk 'sub("$", "\r")' LICENSE.txt > LICENSE-Audiality2.txt
+rm LICENSE.txt

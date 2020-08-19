@@ -2,7 +2,7 @@
 ------------------------------------------------------------
    Kobo Deluxe - An enhanced SDL port of XKobo
 ------------------------------------------------------------
- * Copyright (C) 2001-2003, 2007 David Olofson
+ * Copyright (C) 2001-2003, 2007, 2020 David Olofson
  * Copyright (C) 2005 Erik Auerswald
  * 
  * This program is free software; you can redistribute it and/or modify it
@@ -30,7 +30,7 @@
 void prefs_t::init()
 {
 	comment("--------------------------------------------");
-	comment(" Kobo Deluxe "VERSION" Configuration File");
+	comment(" Kobo Deluxe " KOBO_VERSION_STRING " Configuration File");
 	comment("--------------------------------------------");
 	comment(" Switches - [no]<switch>");
 	comment(" Values - <key> [<value>|\"<string>\"]");

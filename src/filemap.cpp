@@ -2,7 +2,7 @@
 ------------------------------------------------------------
 	filemap.cpp - Simple Portable File Path Mapper
 ------------------------------------------------------------
- * Copyright (C) David Olofson, 2001, 2003, 2007
+ * Copyright (C) David Olofson, 2001, 2003, 2007, 2020
  * This code is released under the terms of the GNU LGPL.
  */
 
@@ -16,7 +16,7 @@
 #include <errno.h>
 #include <sys/types.h>
 
-#ifdef HAVE_STAT
+#ifdef KOBO_HAVE_STAT
 #include <sys/stat.h>
 #include <unistd.h>
 #endif
@@ -310,7 +310,7 @@ fm_key_t *filemapper_t::getkey(fm_key_t *key, const char *ref)
  */
 int filemapper_t::probe(const char *syspath)
 {
-#ifdef HAVE_STAT
+#ifdef KOBO_HAVE_STAT
 	struct stat st;
 //	log_printf(DLOG, "probe(\"%s\") (with stat())\n", syspath);
 	if(::stat(syspath, &st) == 0)
@@ -851,7 +851,8 @@ void filemapper_t::print(FILE *f, const char *ref)
 	while(k)
 	{
 		if(strcmp(k->key, key) == 0 || all)
-			fprintf(f, "%s"FM_DEREF_TOKEN" --> \"%s\"\n", k->key, k->path);
+			fprintf(f, "%s" FM_DEREF_TOKEN " --> \"%s\"\n", k->key,
+					k->path);
 		k = k->next;
 	}
 }
