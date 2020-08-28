@@ -1424,9 +1424,6 @@ int KOBO_main::run()
 			safe_prefs = *prefs;
 			gengine->run();
 
-			if(!manage.game_stopped())
-				manage.abort();
-
 			if(exit_game_fast)
 				break;
 
