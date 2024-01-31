@@ -73,8 +73,8 @@ install(DIRECTORY data/gfx
 install(DIRECTORY data/sfx
 	DESTINATION "${KOBO_SHARE_DIR}"
 	FILES_MATCHING
-	PATTERN "*.a2s"
-	PATTERN "*.theme")
+	PATTERN "*.h"
+	PATTERN "*.agw")
 
 # Documentation
 file(GLOB doc_files
