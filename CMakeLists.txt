@@ -87,9 +87,8 @@ install(FILES ${doc_files}
 # Desktop entry
 if(NOT WIN32)
 	set(KOBO_DE_FILE "net.olofson.${KOBO_PACKAGE_NAME}.desktop")
-	install(FILES "${KOBODELUXE_SOURCE_DIR}/icons/kobodeluxe.png"
-		DESTINATION "share/pixmaps"
-		RENAME "${KOBO_PACKAGE_NAME}.png")
+	install(FILES "${KOBODELUXE_SOURCE_DIR}/icons/kobodl.png"
+		DESTINATION "share/pixmaps")
 	install(FILES "${KOBODELUXE_SOURCE_DIR}/icons/${KOBO_DE_FILE}"
 		DESTINATION "share/applications")
 endif(NOT WIN32)
